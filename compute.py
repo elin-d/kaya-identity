@@ -16,12 +16,17 @@ def compute_kaya_identity(pop, gdp, enInt, carbInt):
     float: CO2 emissions in million tonnes of CO2
 
     """
+    if pop < 0:
+        raise ValueError("The population size should be positive.")
+    if gdp < 0:
+        raise ValueError("The GDP per capita should be positive.")
+
     co2 = pop * gdp * enInt * carbInt
     return co2
 
 
 def main():
-    result = compute_kaya_identity(82.4, 44, 5, 0.05)
+    result = compute_kaya_identity(1, 1, 1, 1)
     print("%.2f" % result)
 
 
